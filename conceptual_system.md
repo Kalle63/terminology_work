@@ -1,1 +1,120 @@
 
+```markdown
+# Projektin nimi
+
+Tässä on kaavio prosessista:
+
+
+```mermaid
+graph TD
+    subgraph Yleiset Talouskäsitteet ["Yleiset Talouskäsitteet"]
+        ECONOMIES["Economies (Talousjärjestelmät/Taloudet)<br/><i>järjestelmä hyödykkeiden tuotannolle, jakelulle, vaihdolle ja kulutukselle tietyllä alueella</i>"]
+        GEG["Global economic growth (Maailmanlaajuinen talouskasvu)<br/><i>maailman talouksien yhteenlasketun tuotannon kasvu</i>"]
+        ED["Economic downturn (Talouslasku/Lamaannus)<br/><i>taloudellisen aktiviteetin merkittävä hidastuminen tai supistuminen</i>"]
+
+        ECONOMIES --- AssosiatiivinenSuhde_Kehitys1["assosiatiivinen suhde: kehityssuunta/tila"] --> GEG
+        ECONOMIES --- AssosiatiivinenSuhde_Kehitys2["assosiatiivinen suhde: kehityssuunta/tila"] --> ED
+    end
+
+    subgraph MarkkinatJaLiikkeet ["Markkinat ja Niiden Liikkeet"]
+        MARKETS["Markets (Markkinat)<br/><i>järjestely tai foorumi, jossa hyödykkeiden tai arvopapereiden ostajat ja myyjät kohtaavat kaupankäyntiä varten</i>"]
+        STOCK_EXCHANGES["Stock exchanges (Pörssit)<br/><i>organisoitu markkinapaikka osakkeiden ja muiden arvopapereiden kaupankäynnille</i>"]
+        NASDAQ_TERM_DEF["Nasdaq<br/><i>yhdysvaltalainen teknologiayhtiöihin keskittynyt pörssi ja sen osakeindeksi</i>"]
+
+        RALLY["Rally (Kurssinousu/Ralli)<br/><i>markkinahintojen nopea ja voimakas nousujakso</i>"]
+        TUMBLING["Tumbling (Raju lasku/Romahtaminen)<br/><i>markkinahintojen äkillinen ja merkittävä lasku</i>"]
+        REBOUNDED["Rebounded (Elpyminen/Nousu laskun jälkeen)<br/><i>markkinahintojen tai talouden kääntyminen nousuun aiemman laskun jälkeen</i>"]
+        OIL_PRICES["Oil prices (Öljyn hinta)<br/><i>raakaöljyn hinta kansainvälisillä markkinoilla</i>"]
+
+        MARKETS -- Yläkäsite1["yläkäsite"] --> STOCK_EXCHANGES
+        STOCK_EXCHANGES -- Yläkäsite_NasdaqPörssi["yläkäsite (Nasdaq pörssinä)"] --> NASDAQ_TERM_DEF
+
+        MARKETS --- AssosiatiivinenSuhde_Ilmiö1["assosiatiivinen suhde: ilmiö markkinoilla"] --> RALLY
+        MARKETS --- AssosiatiivinenSuhde_Ilmiö2["assosiatiivinen suhde: ilmiö markkinoilla"] --> TUMBLING
+        TUMBLING --- AssosiatiivinenSuhde_Seuraus1["assosiatiivinen suhde: voi edeltää"] --> REBOUNDED
+        MARKETS --- AssosiatiivinenSuhde_Kohde1["assosiatiivinen suhde: hinnoiteltava kohde"] --> OIL_PRICES
+    end
+
+    subgraph RahoitusinstrumentitJaIndikaattorit ["Rahoitusinstrumentit ja Indikaattorit"]
+        STOCKS["Stocks (Osakkeet)<br/><i>arvopaperi, joka todistaa omistusosuudesta yhtiössä</i>"]
+        CURRENCIES["Currencies (Valuutat)<br/><i>rahayksikkö, joka toimii virallisena maksuvälineenä tietyssä maassa tai alueella</i>"]
+        USD["U.S. dollar (Yhdysvaltain dollari)<br/><i>Yhdysvaltojen virallinen valuutta</i>"]
+        UST_YIELDS["U.S. Treasury yields (Yhdysvaltain valtionlainojen tuotot)<br/><i>korko, jonka Yhdysvaltain valtio maksaa liikkeeseen laskemilleen velkakirjoille</i>"]
+        LOSSES["Losses (Tappiot)<br/><i>taloudellinen arvonmenetys tai kulujen ylittäminen tuloista</i>"]
+
+        BENCHMARK["Benchmark (Vertailukohta/Vertailuindeksi)<br/><i>standardi tai viitearvo, jota käytetään suorituskyvyn tai arvon mittaamiseen ja vertailuun</i>"]
+        SP500["S&P 500 (S&P 500 -indeksi)<br/><i>osakeindeksi, joka kuvaa 500 suuren yhdysvaltalaisen pörssiyhtiön osakkeiden keskimääräistä kehitystä</i>"]
+        HSI["Hang Seng Index (Hang Seng -indeksi)<br/><i>osakeindeksi, joka mittaa Hongkongin pörssin suurimpien yhtiöiden osakkeiden kehitystä</i>"]
+        STOXX600["Stoxx 600 index (Stoxx 600 -indeksi)<br/><i>osakeindeksi, joka kuvaa noin 600 eurooppalaisen yhtiön osakkeiden kehitystä eri toimialoilta</i>"]
+
+        CURRENCIES -- Yläkäsite2["yläkäsite"] --> USD
+        BENCHMARK -- Yläkäsite3["yläkäsite"] --> SP500
+        BENCHMARK -- Yläkäsite_NasdaqIndeksi["yläkäsite (Nasdaq indeksinä)"] --> NASDAQ_TERM_DEF
+        BENCHMARK -- Yläkäsite4["yläkäsite"] --> HSI
+        BENCHMARK -- Yläkäsite5["yläkäsite"] --> STOXX600
+        
+        STOCKS --- AssosiatiivinenSuhde_Seuraus2["assosiatiivinen suhde: voi aiheuttaa sijoittajalle"] --> LOSSES
+        MARKETS --- AssosiatiivinenSuhde_Kohde2["assosiatiivinen suhde: kaupankäynnin kohde"] --> STOCKS
+        MARKETS --- AssosiatiivinenSuhde_Kohde3["assosiatiivinen suhde: kaupankäynnin kohde"] --> CURRENCIES
+        MARKETS --- AssosiatiivinenSuhde_Kohde4["assosiatiivinen suhde: kaupankäynnin kohde"] --> UST_YIELDS
+    end
+
+    subgraph KansainvalinenKauppa ["Kansainvälinen Kauppa"]
+        direction LR
+        TRADE_REL["Trade relationship (Kauppasuhde)<br/><i>valtioiden tai alueiden välinen taloudellinen vuorovaikutus, joka koskee tavaroiden ja palveluiden vaihtoa</i>"]
+        IMPORTS["Imports (Tuonti)<br/><i>tavaroiden ja palveluiden ostaminen ulkomailta kotimarkkinoille</i>"]
+        GOODS["Goods (Tavarat)<br/><i>fyysiset hyödykkeet, jotka ovat kaupankäynnin kohteena</i>"]
+        TRADE_POLICY["Trade policy (Kauppapolitiikka)<br/><i>valtion strategia ja toimenpiteet ulkomaankaupan sääntelemiseksi ja edistämiseksi</i>"]
+        TRADE_BARRIERS["Trade barriers (Kaupan esteet)<br/><i>toimenpide tai säännös, joka rajoittaa tai vaikeuttaa kansainvälistä kauppaa</i>"]
+        TARIFFS["Tariffs (Tullit)<br/><i>vero maahan tuotavista tai maasta vietävistä tavaroista</i>"]
+        IMPORT_DUTY["Import duty (Tuontitulli)<br/><i>tulli, joka kohdistuu erityisesti maahan tuotaviin tavaroihin</i>"]
+        TRADE_NEG["Trade negotiations (Kauppaneuvottelut)<br/><i>prosessi, jossa osapuolet neuvottelevat kauppaa koskevista ehdoista ja sopimuksista</i>"]
+        CONCESSION["Concession (Myönnytys)<br/><i>neuvotteluissa tehty luopuminen vaatimuksesta tai oikeudesta sovun saavuttamiseksi</i>"]
+        JOINT_STMT["Joint statement (Yhteinen julkilausuma)<br/><i>kahden tai useamman osapuolen yhdessä antama virallinen tiedonanto</i>"]
+        TRADE_WAR["Trade war (Kauppasota)<br/><i>konflikti, jossa maat asettavat toisilleen vastavuoroisia kaupan esteitä, kuten tulleja</i>"]
+        TRADE_SURPLUS["Trade surplus (Kauppataseen ylijäämä)<br/><i>tilanne, jossa maan viennin arvo on suurempi kuin sen tuonnin arvo</i>"]
+
+        TRADE_REL --- Koostumussuhde1["koostumussuhde: osa-alue"] --> IMPORTS
+        IMPORTS --- AssosiatiivinenSuhde_Kohde5["assosiatiivinen suhde: kohdistuu"] --> GOODS
+        TRADE_REL --- AssosiatiivinenSuhde_Saantely["assosiatiivinen suhde: sääntelee"] --> TRADE_POLICY
+        TRADE_POLICY --- Koostumussuhde2["koostumussuhde: voi sisältää"] --> TRADE_BARRIERS
+        TRADE_BARRIERS -- Yläkäsite6["yläkäsite"] --> TARIFFS
+        TARIFFS -- Yläkäsite7["yläkäsite"] --> IMPORT_DUTY
+        TRADE_REL --- AssosiatiivinenSuhde_Prosessi["assosiatiivinen suhde: kehitetään kautta"] --> TRADE_NEG
+        TRADE_NEG --- AssosiatiivinenSuhde_Tulos1["assosiatiivinen suhde: voi johtaa"] --> CONCESSION
+        TRADE_NEG --- AssosiatiivinenSuhde_Tulos2["assosiatiivinen suhde: voi johtaa"] --> JOINT_STMT
+        TRADE_REL --- AssosiatiivinenSuhde_Konflikti["assosiatiivinen suhde: konfliktimuoto"] --> TRADE_WAR
+        TRADE_WAR --- AssosiatiivinenSuhde_Valine["assosiatiivinen suhde: käyttää välineenä"] --> TARIFFS
+        TRADE_REL --- AssosiatiivinenSuhde_Mittari["assosiatiivinen suhde: mittari"] --> TRADE_SURPLUS
+    end
+
+    subgraph ToimijatJaToiminnot ["Toimijat ja Toiminnot"]
+        INVESTORS["Investors (Sijoittajat)<br/><i>henkilö, yritys tai instituutio, joka kohdistaa pääomaa odottaen tulevaisuuden tuottoja</i>"]
+        TRADING["Trading (Kaupankäynti)<br/><i>rahoitusvälineiden, hyödykkeiden tai valuuttojen ostaminen ja myyminen markkinoilla</i>"]
+        ECONOMIST["Economist (Ekonomisti/Taloustieteilijä)<br/><i>taloustieteen asiantuntija, joka tutkii ja analysoi taloudellisia ilmiöitä</i>"]
+        FX_RESEARCH["Foreign exchange research (Valuuttatutkimus)<br/><i>tutkimusala, joka analysoi valuuttakursseja, valuuttamarkkinoita ja niihin vaikuttavia tekijöitä</i>"]
+
+        INVESTORS --- AssosiatiivinenSuhde_Toiminta1["assosiatiivinen suhde: suorittaa"] --> TRADING
+        TRADING --- AssosiatiivinenSuhde_Paikka["assosiatiivinen suhde: tapahtuu (missä?)"] --> MARKETS
+        TRADING --- AssosiatiivinenSuhde_Kohde6["assosiatiivinen suhde: kohde"] --> STOCKS
+        TRADING --- AssosiatiivinenSuhde_Kohde7["assosiatiivinen suhde: kohde"] --> CURRENCIES
+        ECONOMIST --- AssosiatiivinenSuhde_Toiminta2["assosiatiivinen suhde: voi tehdä"] --> FX_RESEARCH
+        FX_RESEARCH --- AssosiatiivinenSuhde_Kohde8["assosiatiivinen suhde: kohde"] --> CURRENCIES
+        ECONOMIST --- AssosiatiivinenSuhde_Analysoi1["assosiatiivinen suhde: analysoi"] --> ECONOMIES
+        ECONOMIST --- AssosiatiivinenSuhde_Analysoi2["assosiatiivinen suhde: analysoi"] --> MARKETS
+        INVESTORS --- AssosiatiivinenSuhde_Seuraa1["assosiatiivinen suhde: seuraa"] --> UST_YIELDS
+        INVESTORS --- AssosiatiivinenSuhde_Seuraa2["assosiatiivinen suhde: seuraa"] --> BENCHMARK
+        INVESTORS --- AssosiatiivinenSuhde_Kokee["assosiatiivinen suhde: voi kokea"] --> LOSSES
+    end
+
+    ECONOMIES --- AssosiatiivinenSuhde_Konteksti["assosiatiivinen suhde: muodostaa kontekstin"] --> MARKETS
+    MARKETS --- AssosiatiivinenSuhde_Vaikutus1["assosiatiivinen suhde: vaikuttaa"] --> ECONOMIES
+    ECONOMIES --- Koostumussuhde3["koostumussuhde: sisältää"] --> TRADE_REL
+    TRADE_POLICY --- AssosiatiivinenSuhde_Vaikutus2["assosiatiivinen suhde: vaikuttaa"] --> GEG
+    TRADE_WAR --- AssosiatiivinenSuhde_Vaikutus3["assosiatiivinen suhde: vaikuttaa negatiivisesti"] --> GEG
+    TRADE_WAR --- AssosiatiivinenSuhde_Aiheuttaa1["assosiatiivinen suhde: voi aiheuttaa"] --> ED
+    TRADE_NEG --- AssosiatiivinenSuhde_Vaikutus4["assosiatiivinen suhde: positiivinen tulos voi aiheuttaa"] --> RALLY
+    TRADE_WAR --- AssosiatiivinenSuhde_Aiheuttaa2["assosiatiivinen suhde: voi aiheuttaa"] --> TUMBLING
+    GOODS --- AssosiatiivinenSuhde_Liittyy["assosiatiivinen suhde: liittyy"] --> ECONOMIES
+```
+```
