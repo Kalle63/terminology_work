@@ -1,9 +1,4 @@
-
-```markdown
-# Projektin nimi
-
-Tässä on kaavio prosessista:
-
+# Talousalan käsitejärjestelmä
 
 ```mermaid
 graph TD
@@ -116,5 +111,4 @@ graph TD
     TRADE_NEG --- AssosiatiivinenSuhde_Vaikutus4["assosiatiivinen suhde: positiivinen tulos voi aiheuttaa"] --> RALLY
     TRADE_WAR --- AssosiatiivinenSuhde_Aiheuttaa2["assosiatiivinen suhde: voi aiheuttaa"] --> TUMBLING
     GOODS --- AssosiatiivinenSuhde_Liittyy["assosiatiivinen suhde: liittyy"] --> ECONOMIES
-```
 ```
